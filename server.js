@@ -1,13 +1,19 @@
 const exp = require("constants");
 const express = require('express');
+const cors = require('cors');
+
 const fs = require('fs');
 
 const app = express();
 const port = 3000;
 
-app.use('/', express.static('public'));
+app.use(cors());
 
-/* const budget = {
+
+
+
+
+ const budget = {
 myBudget: [
     {
         title: 'Eat out',
@@ -24,16 +30,14 @@ myBudget: [
     ]
 
 };
-*/
+
 const budgetData = JSON.parse(fs.readFileSync('budget-data.json', 'utf8'));
 
 
 
  
 
-app.get('/hello', (req, res) => {
-    res.send('Hello World!');
-});
+
 
 app.get('/budget', (req, res) => {
     res.json(budgetData);
@@ -41,5 +45,5 @@ app.get('/budget', (req, res) => {
 
 app.listen(port, () =>
 {
-    console.log(`Example app listening at http://localhost:${port}`);
+    console.log(`API Served at http://localhost:${port}`);
 });

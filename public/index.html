@@ -7,8 +7,8 @@
     <title>Personal Budget - Manage Finances</title>
     <!-- This is an SEO Change -->
     <meta name="description" content="Manage your personal budget efficiently with this free app. Get results by staying alert and staying on track.">
-    <link rel="stylesheet" href="/reset.css">
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
@@ -131,7 +131,7 @@
     }
 
     function getBudget() {
-        axios.get('/budget')
+        axios.get('http://localhost:3000/budget')
         .then(function(res) {
             console.log(res.data);
             for(var i=0; i<res.data.myBudget.length; i++) {
@@ -156,6 +156,7 @@ svg.append("g")
 	.attr("class", "labels");
 svg.append("g")
 	.attr("class", "lines");
+    
 
 var width = 960,
     height = 450,
